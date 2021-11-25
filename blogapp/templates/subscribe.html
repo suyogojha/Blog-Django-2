@@ -1,0 +1,31 @@
+{% extends 'base.html' %} 
+
+{% load static %}
+
+
+
+{% block heading %}
+<section class="cta-section theme-bg-light py-5">
+  <div class="container text-center">
+    <h2 class="heading">Mobile Blogs</h2>
+    <div class="intro">
+      Welcome to my blog. Subscribe and get my latest blog post in your
+      inbox.
+    </div>
+    <form class="signup-form form-inline justify-content-center pt-3" action="POST">
+      <div class="form-group">
+        <label class="sr-only" for="Subscribe ">Your email</label>
+        <input
+          type="email"
+          id="Subscribe "
+          name="Subscribe "
+          class="form-control mr-md-1 semail"
+          placeholder="Enter email"
+        />
+      </div>
+      <button type="submit" value="submit" class="btn btn-primary">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+{% endblock %}

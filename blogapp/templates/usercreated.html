@@ -1,0 +1,51 @@
+{% extends 'base.html' %} 
+
+{% load static %}
+
+
+
+{% block usercreated %}
+
+
+<section class="blog-list px-3 py-5 p-md-5 ">
+    <div class="container">
+      {% for i in data %}
+
+      <div class="item">
+        <div class="media mt-4">
+          {% if i.image %}
+          <img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="{{ i.image.url }}" alt="image"/>
+          {% else %}
+          <img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="{% static 'images/noimg.png' %}" alt="image"/>
+          {% endif %}
+          <div class="media-body">
+            <h3 class="title mb-1">
+              <a href="#">{{i.name}}</a>
+            </h3>
+            <div class="meta mb-1">
+              <span class="date">{{i.modified}}</span
+              ><span class="time">{{i.code}}</span
+              ><span class="comment"><a href="{% url 'blogapp:storage'%}">{{i.storage}}</a></span>
+            </div>
+            <div class="intro">
+              <strong>Description:</strong> {{i.description}}
+            </div>
+            <div class="intro">
+              <strong>Brand:</strong> {{i.brand}}
+             </div>
+            <div class="intro">
+             <strong>Price:</strong> {{i.price}}
+            </div>
+            <div class="intro">
+              <span class="comment"><strong>Created By:</strong><a href="{% url 'blogapp:usercreated'%}"> {{i.person}}</a></span>
+             </div>
+            
+          </div>
+        </div>
+      </div> <hr>
+      {% endfor %}
+
+    </div>
+  </section>
+
+{% endblock %}

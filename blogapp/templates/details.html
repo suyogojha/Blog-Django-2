@@ -1,0 +1,63 @@
+
+
+ {% extends 'base.html' %} 
+
+ {% load static %}
+
+
+ {% block details %}
+
+
+
+
+ <table class="table table-bordered table-hover table-striped mt-4" style="margin: 5px;">
+    <thead>
+      <tr>
+        <th scope="col">Image</th>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Code</th>
+        <th scope="col">Storage</th>
+        <th scope="col">Color</th>
+        <th scope="col">Brand</th>
+        <th scope="col">Description</th>
+        <th scope="col">modified</th>
+        <!-- <th scope="col">Moified</th> -->
+        <th scope="col">********</th>
+      </tr>
+    </thead>
+    <tbody>
+ {% for i in data %}
+      <tr>
+        <td>
+            {% if i.image %}
+            <img height="auto" width="120px" src="{{ i.image.url }}" alt="">
+            {% else %}
+            <img height="auto" width="120px" src=" {% static 'images/noimg.png' %}" alt="">
+            {% endif %}
+        </td>
+        <td>{{ i.name }}</td>
+        <td>{{ i.price }}</td>
+        <td>{{ i.code }}</td>
+        <td>{{ i.storage }}</td>
+        <td>{{ i.color }}</td>
+        <td>{{ i.brand }}</td>
+        <td>{{ i.description }}</td>
+        <td>{{ i.modified }}</td>
+        <!-- <td>{{ i.modified }}</td> -->
+        <td>        
+            <a class="btn btn-primary" href="{% url 'blogapp:edit_product' i.id %}">Edit &rarr;</a>
+            <a class="btn btn-danger" onclick="if (!confirm('Are you sure?')) { return false }" href="{% url 'blogapp:delete_product' i.id %}">Delete &rarr;</a>
+        </td>
+      </tr>
+  {% endfor %}
+     
+    </tbody>
+  </table>
+
+
+
+
+
+
+ {% endblock %}

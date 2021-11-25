@@ -1,0 +1,81 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% block title %}
+    <title>Suyog Blog</title>
+    {% endblock %}
+    <!-- Meta -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Blog Template" />
+    <meta name="author" content="Xiaoying Riley at 3rd Wave Media" />
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/form-css.css' %}" />
+    <!-- FontAwesome JS-->
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.7.1/js/all.js"
+      integrity="sha384-eVEQC9zshBn0rFj4+TU78eNA19HMNigMviK/PU/FFjLXqa/GKPgX58rvt5Z8PLs7"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Theme CSS -->
+    <link
+      id="theme-style"
+      rel="stylesheet"
+      href="{% static 'css/theme-1.css' %}"
+    />
+  </head>
+
+  <body>
+    {% include 'navigation.html' %}
+    <div class="main-wrapper">
+
+      {% block details %}
+      {% endblock %}
+
+
+      
+      {% block heading %}
+      {% endblock %}
+
+
+      {% block blog %}
+      {% endblock %}
+
+       
+      {% block form %}
+      {% endblock %}
+
+
+      {% block article %}
+      {% endblock %}
+
+      {% block created_by %}
+      {% endblock %}
+
+      {% block usercreated %}
+      {% endblock %}
+
+      {% block storage %}
+      {% endblock %}
+      
+    </div>
+
+
+
+
+    {% include 'footer.html' %}
+    {% include 'color.html' %}
+
+    <!-- Javascript -->
+    <script src="{% static 'plugins/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'plugins/popper.min.js' %}"></script>
+    <script src="{% static 'plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/demo/style-switcher.js' %}"></script>
+  </body>
+</html>

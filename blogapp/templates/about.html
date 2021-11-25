@@ -1,0 +1,108 @@
+{% extends 'base.html' %} {% load static %} {% block title %}
+<title>About Me</title>
+{% endblock %} {% block article %}
+
+<article class="about-section py-5">
+  <div class="container">
+    <h2 class="title mb-3">About Me</h2>
+
+    <p>
+      A front-end web developer is responsible for implementing visual and
+      interactive elements that users engage with through their web browser when
+      using a web application. They are usually supported by back-end web
+      developers, who are responsible for server-side application logic and
+      integration of the work front-end developers do.
+    </p>
+    <figure>
+      <img
+        class="img-fluid"
+        height="auto"
+        width="300px"
+        src="{% static 'images/pic.jpg' %}"
+        alt="image"
+      />
+    </figure>
+    <h5 class="mt-5">About The Blog</h5>
+    <p>The blog of Mobile Brands</p>
+    <h5 class="mt-5">My Skills and Experiences</h5>
+    <span style="color: red; font-size: 19px">HTML: </span>
+    <div class="progress">
+      <div
+        class="progress-bar"
+        role="progressbar"
+        style="width: 85%"
+        aria-valuenow="85"
+        aria-valuemin="0"
+        aria-valuemax="100"
+      >
+        85%
+      </div>
+    </div>
+
+    <span style="color: red; font-size: 19px">CSS: </span>
+    <div class="progress">
+      <div
+        class="progress-bar"
+        role="progressbar"
+        style="width: 90%"
+        aria-valuenow="90"
+        aria-valuemin="0"
+        aria-valuemax="100"
+      >
+        90%
+      </div>
+    </div>
+
+    <span style="color: red; font-size: 19px">JAVASCRIPT: </span>
+    <div class="progress">
+      <div
+        class="progress-bar"
+        role="progressbar"
+        style="width: 70%"
+        aria-valuenow="70"
+        aria-valuemin="0"
+        aria-valuemax="100"
+      >
+        70%
+      </div>
+    </div>
+
+    <span style="color: red; font-size: 19px">PYTHON: </span>
+    <div class="progress">
+      <div
+        class="progress-bar"
+        role="progressbar"
+        style="width: 75%"
+        aria-valuenow=75"
+        aria-valuemin="0"
+        aria-valuemax="100"
+      >
+        75%
+      </div>
+    </div>
+
+    <span style="color: red; font-size: 19px">DJANGO: </span>
+    <div class="progress">
+      <div
+        class="progress-bar"
+        role="progressbar"
+        style="width: 70%"
+        aria-valuenow="70"
+        aria-valuemin="0"
+        aria-valuemax="100"
+      >
+        70%
+      </div>
+    </div>
+
+    <h5 class="mt-5">Website Samples</h5>
+    <p>
+      <a href="https://suyogojha.github.io/ojha.suyog/" target="blank">Personal Website 1 </a><hr>  
+      <a href="https://suyogojha.github.io/ojhasuyog/" target="blank">Personal Website 2 </a><hr>
+      <a href="https://suyogojha.github.io/suyogojha/" target="blank">Personal Website 3 </a><hr>
+    </p>
+  </div>
+</article>
+<!--//about-section-->
+
+{% endblock %}

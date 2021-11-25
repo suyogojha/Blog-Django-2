@@ -1,0 +1,14 @@
+
+ {% extends 'base.html' %} 
+
+ {% load static %}
+
+
+ {% block form %}
+    <form action="#" method="POST" class="mt-5" style="margin:30px; text-align:center;">
+      {% csrf_token %}
+      {{form.as_p}}
+      <input type="submit" value="login" class="btn btn-primary">
+
+    </form>
+    {% endblock %}

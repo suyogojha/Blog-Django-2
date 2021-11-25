@@ -1,0 +1,107 @@
+{% load static %}
+
+
+
+    <header class="header text-center">
+
+      {% if request.user.is_active %}
+        <h1 class="blog-name pt-lg-4 mb-0"><a href="{% url 'blogapp:blogapp' %}">{{ request.user.username }}</a></h1>
+              {% else %}
+              <h1 class="blog-name pt-lg-4 mb-0"><a href="#">Anonymous User</a></h1>
+      {% endif %}
+        <nav class="navbar navbar-expand-lg navbar-dark">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navigation"
+            aria-controls="navigation"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+  
+          <div id="navigation" class="collapse navbar-collapse flex-column">
+            <div class="profile-section pt-3 pt-lg-0">
+              <img
+                class="profile-image mb-3 rounded-circle mx-auto"
+                src="{% static 'images/pic.jpg' %}"
+                alt="image"
+              />
+  
+              <div class="bio mb-3">
+                Hi, my name is Suyog Ojha. Welcome to the Blog<br/>
+                
+              </div>
+              <!--//bio-->
+              <ul class="social-list list-inline py-3 mx-auto" style="margin-top: -20px;">
+                <li class="list-inline-item">
+                  <a href="#"><i class="fab fa-twitter fa-fw"></i></a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="#"><i class="fab fa-linkedin-in fa-fw"></i></a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="#"><i class="fab fa-github-alt fa-fw"></i></a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="#"><i class="fab fa-facebook fa-fw"></i></a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="#"><i class="fab fa-youtube fa-fw"></i></a>
+                </li>
+              </ul>
+            </div>
+  
+            <ul class="navbar-nav flex-column text-left" style="margin-top: -30px;">
+              <li class="nav-item active">
+                <a class="nav-link" href="{% url 'blogapp:blogapp' %}"
+                  ><i class="fas fa-home fa-fw mr-2"></i>Blog Home
+                  <span class="sr-only">(current)</span></a
+                >
+              </li>
+  
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'blogapp:about' %}"
+                  ><i class="fas fa-user fa-fw mr-2"></i>About Me</a
+                >
+              </li>
+
+              {% if request.user.is_active %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'blogapp:details' %}"
+                  ><i class="fas fa-user fa-fw mr-2"></i>Product Details</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'blogapp:add_product' %}"
+                  ><i class="fas fa-user fa-fw mr-2"></i>Add Product</a
+                >
+              </li>
+
+              <li class="nav-item">
+                <a class="btn btn-primary" href="{% url 'userprofile:logout' %}"
+                  ><i class="fas fa-user fa-fw mr-2"></i>Logout</a
+                >
+              </li>
+              {% else %}
+              <li class="nav-item">
+                <a class="btn btn-primary" href="{% url 'userprofile:login' %}"
+                  ><i class="fas fa-user fa-fw mr-2"></i>Login</a
+                >
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'userprofile:register' %}"
+                  ><i class="fas fa-user fa-fw mr-2"></i>Register</a
+                >
+              </li>
+            </ul>
+              {% endif %}
+
+
+          </div>
+        </nav>
+      </header>
+

@@ -1,0 +1,96 @@
+{% extends 'base.html' %} {% load static %} {% block blog %}
+<section class="blog-list px-3 py-5 p-md-5">
+  <div class="container">
+    {% for i in data %}
+
+    <div class="item">
+      <div class="media mt-4">
+        {% if i.image %}
+        <img
+          class="mr-3 img-fluid post-thumb d-none d-md-flex"
+          src="{{ i.image.url }}"
+          alt="image"
+        />
+        {% else %}
+        <img
+          class="mr-3 img-fluid post-thumb d-none d-md-flex"
+          src="{% static 'images/noimg.png' %}"
+          alt="image"
+        />
+        {% endif %}
+        <div class="media-body">
+          <h3 class="title mb-1">
+            <a href="#">{{i.name}}</a>
+          </h3>
+          <div class="meta mb-1">
+            <span class="date">{{i.modified}}</span
+            ><span class="time">{{i.code}}</span
+            ><span class="comment"
+              ><a href="{% url 'blogapp:storage'%}">{{i.storage}}</a></span
+            >
+          </div>
+          <div class="intro">
+            <strong>Description:</strong> {{i.description}}
+          </div>
+          <div class="intro"><strong>Brand:</strong> {{i.brand}}</div>
+          <div class="intro"><strong>Price:</strong> {{i.price}}</div>
+
+          {% if mobile.person == admin %}
+          <div class="intro">
+            <span class="comment"
+              ><strong>Created By:</strong
+              ><a href="{% url 'blogapp:created_by_user' %}">
+                {{i.person}}</a
+              ></span
+            >
+          </div>
+          {% else %}
+          <div class="intro">
+            <span class="comment"
+              ><strong>Created By:</strong
+              ><a href="{% url 'blogapp:usercreated' %}">
+                {{i.person}}</a
+              ></span
+            >
+          </div>
+          {% endif %}
+
+
+
+        </div>
+      </div>
+    </div>
+    <hr />
+    {% endfor %}
+  </div>
+</section>
+
+{% endblock %} {% block heading %}
+<section class="cta-section theme-bg-light py-5">
+  <div class="container text-center">
+    <h2 class="heading">Mobile Blogs</h2>
+    <div class="intro">
+      Welcome to my blog. Subscribe and get my latest blog post in your inbox.
+    </div>
+    <form
+      class="signup-form form-inline justify-content-center pt-3"
+      method="POST" action="#" 
+    >
+      <div class="form-group">
+        <label class="sr-only" for="Subscribe ">Your email</label>
+        <input
+          type="email"
+          id="Subscribe "
+          name="Subscribe "
+          class="form-control mr-md-1 semail"
+          placeholder="Enter email"
+        />
+      </div>
+      <button type="submit" value="submit" class="btn btn-primary">
+        Subscribe
+      </button>
+    </form>
+  </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,15 @@
+
+ {% extends 'base.html' %} 
+
+ {% load static %}
+
+
+ {% block form %}
+ <h1>Add Product</h1>
+    <form action="#" method="POST" class="mt-4" enctype="multipart/form-data" style="margin:30px;">
+      {% csrf_token %}
+      {{form.as_p}}
+      <input type="submit" value="submit" class="btn btn-primary">
+
+    </form>
+    {% endblock %}
